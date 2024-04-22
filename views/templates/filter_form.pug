@@ -1,0 +1,37 @@
+h2 Filter Birds
+form(action='' method='')
+    label(for='search') Search
+    input(type='text' name='search' id='search' placeholder="search...")
+
+    label(for='status') Conservation Status
+    select(name='status' id='status')
+        option(selected) All
+        option(class="Not-Threatened") Not Threatened
+        option(class="Naturally-Uncommon") Naturally Uncommon
+        option(class="Relict") Relict
+        option(class="Recovering") Recovering
+        option(class="Declining") Declining
+        option(class="Nationally-Increasing") Nationally Increasing
+        option(class="Nationally-Vulnerable") Nationally Vulnerable
+        option(class="Nationally-Endangered") Nationally Endangered
+        option(class="Nationally-Critical") Nationally Critical
+        option(class="Data-Deficient") Data Deficient
+    
+    label(for='sort') Sort By
+    select(name='sort', id='sort')
+        optgroup(label='Name')
+            option(value='alphabetical') alphabetical
+            option(value='Reverse alphabetical') Reverse alphabetical
+        optgroup(label='Length')
+            option(value='Shortest to longest') Shortest to longest
+            option(value='Longest to shortest') Longest to shortest
+        optgroup(label='Weight')
+            option(value='Lightest to heaviest') Lightest to heaviest
+            option(value='Heaviest to lightest') Heaviest to lightest
+        optgroup(label='Conservation Status')
+            option(value='Unthreatened to endangered') Unthreatened to endangered
+            option(value='Endangered to unthreatened') Endangered to unthreatened 
+    
+    button(type='submit') Filter Birds
+
+    p= `${birds.length} birds found` 

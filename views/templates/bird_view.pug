@@ -1,0 +1,34 @@
+section(class='card')
+    div(class="card-image")
+        img(src=`/images/${bird.photo.source}` alt=`Photo of ${bird.primary_name}`)
+        div(class="card-title")
+            p(lang="mi") #{bird.primary_name}
+            span Photo by #{bird.photo.credit}
+        div(class=`circle ${bird.status.replace(' ', '-')}`)
+    div(class="card-content")
+        h2(class="card-title") 
+        ul
+            li
+                b Scientific
+                span=bird.scientific_name
+            li
+                b Family
+                span=bird.family
+            li
+                b Order 
+                span=bird.order
+            li
+                b Status 
+                span=bird.status
+            li
+                b Length 
+                span=`${bird.size.length.value} ${bird.size.length.units}`
+            li
+                b Weight 
+                span=`${bird.size.weight.value} ${bird.size.weight.units}`
+            
+            a(class='button' type='submit' href = '/birds/' + bird._id + '/edit') Edit Bird
+
+            a(class='button' type='submit' href = '/birds/' + bird._id + '/delete') Delete Bird
+
+        

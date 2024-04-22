@@ -1,0 +1,66 @@
+/* style for the conservation data (and legend) */
+
+/* conservation colours */
+.Not-Threatened {
+    background: #02a028
+}
+.Naturally-Uncommon {
+    background: #649a31;
+}
+.Relict {
+    background: #99cb68;
+}
+.Recovering {
+    background: #fecc33;
+}
+.Declining {
+    background: #fe9a01;
+}
+.Nationally-Increasing {
+    background: #c26967;
+}
+.Nationally-Vulnerable {
+    background: #9b0000;
+}
+.Nationally-Endangered {
+    background: #660032;
+}
+.Nationally-Critical {
+    background: #320033;
+}
+.Data-Deficient {
+    background: black;
+}
+
+/* legend styles */
+aside ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+aside li {
+    display: flex;
+}
+
+/* circle styles */
+.circle, .circle-small {
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+}
+.circle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 16px;
+    bottom: -25px;
+    display: block;
+    z-index: 100;
+    border-width: 4px;
+}
+.circle-small {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}

@@ -1,0 +1,103 @@
+/* various CSS rules for colour, shadows, fonts, and padding */
+
+
+/* theme */
+:root {
+    --theme-primary-dark: #1769aa;
+    --theme-primary: #2196f3;
+    --theme-primary-light: #4dabf5;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333333;
+}
+header, footer {
+    color: white;
+    background: var(--theme-primary);
+}
+aside {
+    background: white;
+    padding: 16px;
+}
+main {
+    background: #eee;
+    padding: 32px;
+    box-shadow: inset 0px 0px 8px #0007;
+}
+
+/* typography */
+body {
+    font-size: 14px;
+    line-height: 20px;
+}
+header h1 {
+    font-size: 50px;
+}
+
+
+/* random sizes */
+header img {
+    height: 50px;
+    margin-right: 16px;
+}
+
+/* form styles */
+select, input, button {
+    width: 100%;
+    border-radius: 4px;
+    line-height: 32px;
+    height: 32px;
+}
+aside select#status > option:not(:first-child) {
+    color: white;
+}
+textarea {
+    width: 100%;
+}
+
+/* legend */
+legend {
+    font-size: larger;
+    font-weight: bold;
+}
+
+/* button styles */
+button {
+    margin-top: 20px;
+    background: var(--theme-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    box-shadow: 1px 1px 4px #0007;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+button:hover {
+    background: var(--theme-primary-light);
+}
+button:active {
+    background: var(--theme-primary-dark);
+}
+
+a.button {
+    margin-top: 20px;
+    height: 20px;
+    padding: 5px;
+    background: var(--theme-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    box-shadow: 1px 1px 4px #0007;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+a.button:hover {
+    background: var(--theme-primary-light);
+}
+a.button:active {
+    background: var(--theme-primary-dark);
+}

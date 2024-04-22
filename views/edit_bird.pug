@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+    head
+        title COSC203: Birds of Aotearoa
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/styles/layout.css')
+        link(rel='stylesheet', href='/styles/theme.css')
+        link(rel='stylesheet', href='/styles/conservation-status.css')
+        link(rel='stylesheet', href='/styles/cards.css')
+        script(defer, src='/scripts/populate_form.js')
+    body
+        include templates/header.pug
+        aside
+            a(id = 'a.button' class = 'button' href = '/birds/' ) Home
+        main
+            each bird in birds
+                form(action = `/birds/${bird.id}/edit` method = 'POST' enctype = 'multipart/form-data')
+                    input(type = 'hidden' name = 'id' value = id)
+                    fieldset
+                        legend Common Names 
+                        label(for='primary_name') Primary Name
+                        input(type='text' name = 'primary_name' value = bird.primary_name required) 
+                        label(for='english_name') English Name
+                        input(type='text' name = 'english_name' value = bird.english_name required)
+                        label(for='other_names') Other Name
+                        textarea(name="other_names", cols="50", rows="10")= bird.other_names
+                    fieldset 
+                        legend Taxonomy
+                        label(for='scientific_name') Scientific Name
+                        input(type='text' name = 'scientific_name' value = bird.scientific_name required) 
+                        label(for='order') Order
+                        input(type='text' name = 'order' value = bird.order required)
+                        label(for='family') Family
+                        input(type='text' name = 'family' value = bird.family required)
+                    fieldset
+                        legend Size
+                        label(for='length') length (cm)
+                        input(type='number' name = 'length' value= bird.size.length.value) 
+                        label(for='weight') weight (g)
+                        input(type='number' name = 'weight' value= bird.size.weight.value) 
+                    fieldset
+                        legend Conservation
+                        label(for='status') Status
+                        select#status(name="status")
+                            option(selected)= bird.status
+                            option Not Threatened
+                            option Naturally Uncommon
+                            option Relict 
+                            option Recovering 
+                            option Declining 
+                            option Nationally Increasing 
+                            option Nationally Vulnerable 
+                            option Nationally Critical 
+                            option Data Deficient 
+                    fieldset
+                        legend Photo
+                        label(for='photo_credit') Photo Credit
+                        input(type='text' name='photo_credit' value= bird.photo.credit  required='')
+                        label(for='photo_upload') Upload New Photo
+                        input#photo_upload(type='file' name='photo_upload')
+                        label(for='photo_source') Photo Preview
+                    button(type='submit') SAVE BIRD
+                
+        include templates/footer.pug

@@ -1,0 +1,69 @@
+/* Layout */
+:root {
+    --aside-width: 300px;
+    --header-height: 100px;
+    --footer-height: 50px;
+}
+/* grid layout */
+body {
+    display: grid;
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    min-height: 100vh;
+    margin: 0;
+}
+header {
+    grid-column: span 2;
+    height: var(--header-height);
+}
+footer {
+    grid-column: span 2;
+    height: var(--footer-height);
+}
+
+/* Small screens (phones) */
+@media (max-width: 620px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 1fr min-content;
+    }
+    header {
+        grid-column: span 1;
+    }
+    footer {
+        grid-column: span 1;
+    }
+    header h1 {
+        font-size: 30px !important;
+    }
+}
+
+
+/* flex layouts */
+header, footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+main {
+    flex-basis: calc(100vw - var(--aside-width));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 16px;
+}
+aside {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    flex-basis: var(--aside-width);
+}
+
+/* make sure everything is within the window */
+* {
+    max-width: 100%;
+}
